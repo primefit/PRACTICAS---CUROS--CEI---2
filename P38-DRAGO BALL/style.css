@@ -1,0 +1,51 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #0000ff;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.photo__left, .photo__right{
+    border: 3px solid orangered;
+    width: 100px;
+    height: 100px;
+    padding: 20%;
+    position: relative;
+}
+
+
+
+.imagen{
+    width: 384px;
+    height: 391px;
+    padding: 9px;
+    object-fit: cover;
+    position: absolute;
+    top: -15px;
+    right: -8px;
+}
+
+
+
+button{
+    width: 14%;
+    height: 14%;
+    padding: 2%;
+    position: absolute;
+    top: 113px;
+    right: 391px;
+    border-radius: 5px 5px 5px 5px;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}

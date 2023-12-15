@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+   <!-- Elemento DOM -->
+<div id="miElemento">Este es un elemento DOM</div>
+
+<!-- Botones -->
+<button onclick="domManipulator('miElemento', 'borrar')">Borrar</button>
+<button onclick="domManipulator('miElemento', 'copiar')">Copiar</button>
+<button onclick="domManipulator('miElemento', 'insertarTexto')">Insertar Texto</button>
+
+<script>
+    
+  function domManipulator(elementId, action) {
+    var elemento = document.getElementById(elementId);
+
+    if (!elemento) {
+      console.error("Elemento no encontrado");
+      return;
+    }
+
+    switch (action) {
+      case 'borrar':
+        elemento.remove();
+        break;
+
+      case 'copiar':
+        var copia = elemento.cloneNode(true);
+        elemento.parentNode.insertBefore(copia, elemento.nextSibling); //nextSibling: selecciona al hermano mismo nivel 
+        break;
+
+      case 'insertarTexto':
+        var texto = prompt("Introduce el texto a insertar:");
+        if (texto !== null) {
+          elemento.innerHTML = texto;
+        }
+        break;
+      default:
+        console.error("Acción no reconocida");
+    }
+  }
+
+</script>
+
+</body>
+</html>

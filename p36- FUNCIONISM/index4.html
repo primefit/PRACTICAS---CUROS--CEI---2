@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        const myObject = {
+            prop1 :"super",
+            prop2:"cali",
+            prop3: "fragil",
+            prop4:"isticoespiadioso",
+            concatenar: function (){
+                let all ="";
+                Object.values(this).forEach((item) =>{  //SIEMPRE EN MAYUSCULA
+                   if(typeof item ==="string") all += item;
+                })
+                
+                return all;
+             
+                
+                
+            }
+
+        }
+            
+    
+    //  return this.prop1 + this.prop2 + this.prop3 + this.prop4 (no vale porque esta hardcodeado)
+        console.log(myObject.concatenar());
+
+    </script>
+
+
+</body>
+</html>

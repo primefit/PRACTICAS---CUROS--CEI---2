@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="crono__slots">
+    <div class="crono__seconds"></div>
+    <div class="crono__miliseconds"></div>
+</div>
+
+
+<div class="crono_buttons">
+    <button class="crono__start" value="startCrono">Iniciar</button>
+    <button class="crono__stop" value="stopCrono">Parar</button>
+    <button class="crono__zero" value="zeroCrono">Reset</button>
+</div>
+
+        <script>
+
+
+           
+
+        //CONSTANTES  Y VARIABLES
+         
+
+            const cronoButtons = document.querySelector(".crono_buttons");
+            const cronoSeconds = document.querySelector(".crono__seconds");
+            const cronoMiliseconds = document.querySelector(".crono__miliseconds");
+            let counterSeconds =0;
+            let counterCentiseconds =0;
+            let cronoInterval= "";
+            let alreadyStarted = false;
+
+        function startCrono(){
+            if(alreadyStarted){
+
+             cronoInterval = setInterval(() =>{
+                counterCentiseconds++;
+                
+
+                if(counterCentiseconds===100){
+                    counterSeconds +=1;
+                    counterCentiseconds =0;
+                }
+
+                cronoMiliseconds.innerHTML = counterCentiseconds;
+                cronoSeconds.innerHTML = counterSeconds;
+            }, 10);
+        }
+
+        isRunning = true;
+
+    }
+
+        function stopCrono(){
+            cleearInterval(cronoInterval);
+            isRunning = false;
+            
+        }
+
+        function zeroCrono(){
+            counterSeconds =0;
+            counterCentiseconds=0;
+            cronoSeconds.innerHTML = 0;
+            cronoMiliseconds.innerHTML =0;
+            isRunning=false;
+        }
+
+    
+
+        //LLAMADAS A FUNCION, EVENTOS, ETC
+
+       cronoButtons.addEventListener("click", function(e){
+        e.target.value === "start" && startCrono();
+        e.target.value === "stop" && stopCrono();
+        e.target.value === "zero" && zeroCrono();
+       })
+
+
+          
+
+
+
+
+            
+        </script>
+
+
+</body>
+</html>

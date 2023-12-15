@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+
+
+ for(let i=1; i<=100; i++){
+
+const boton = document.createElement("button");
+boton.innerHTML= i;
+boton.addEventListener("click", function() {
+    
+    console.log("hice click en el numero" + i);
+   
+});
+document.body.appendChild(boton);
+
+
+}
+</script>
+   
+</body>
+</html>

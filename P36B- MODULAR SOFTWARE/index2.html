@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--prepend-->
+    <p>parrafo de referencia</p>
+    <p>parrafo de referencia</p>
+    <p>parrafo de referencia</p>
+    <p class="x">parrafo de referencia</p>
+    <!--appenchild-->
+
+<!--CREACION DE ELEMENTOS-->
+
+    <script>
+        
+
+        function showClassName(){
+            return "holiiiii"
+        }
+
+        const mybody = document.querySelector('body');
+    
+        document.body.innerHTML = `<p class= "${showClassName}"> Lao tse es un grande </p>`
+
+        document.body.textContent = "<p> hola </p>"
+
+        //CREO UN ELEMENTO TIPO PARRAFO
+
+        const newparrafo = document.createElement('x');
+
+        newparrafo.setAttribute('class', 'hola');
+        newparrafo.textContent = "parrafo dinamico"
+
+        //INSERTO ELEMENTO EN EL DOM
+
+        document.body.appendChild(newparrafo);
+
+
+        //CREO FRAGMENTO DE DOCUMENT
+
+        let fragment = new DocumentFragment;
+        let newparrafo = document.createElement('p');
+        newparrafo.textContent ="hola"
+
+
+        //APPENCHILD
+        fragment.append(newparrafo);
+        document.body.appendChild(fragment);
+
+        //PREPEND
+        document.body.prepend(fragment);
+
+        // INSERTBEFORE
+
+        document.body.insertBefore(fragment, referenceNode);
+
+
+    </script>
+</body>
+</html>

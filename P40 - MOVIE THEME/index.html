@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Ranking de actores/actrices</h1>
+    <ul>
+      <script>
+// Cargamos el fichero json
+$datos = json_decode(file_get_contents("jason.json"));
+  
+  // Recorremos los datos
+  foreach (${datos} as ${actor}) {
+    // Obtenemos el nombre
+    ${nombre} = ${actor}->nombre;
+
+    // Si el nombre no está disponible, lo ponemos a "no disponible"
+    if ($nombre === null) {
+      $nombre = "no disponible";
+    }
+
+    // Obtenemos el nombre alternativo
+    $nombreAlternativo = $actor->nombreAlternativo;
+
+    // Obtenemos la puntuación
+    $puntuacion = $actor->puntuacion;
+
+    // Obtenemos el color según la puntuación
+    $color = getColor($puntuacion);
+
+    // Imprimimos el item
+    echo "<li style='color: $color'>";
+    echo "<strong>$nombre</strong>";
+    echo "<br>Nombre alternativo: $nombreAlternativo";
+    echo "<br>Puntuación: $puntuacion";
+    echo "<br>Object ID: $actor->objectId";
+    echo "</li>";
+  }
+
+  // Función para obtener el color según la puntuación
+  function getColor($puntuacion) {
+    switch ($puntuacion) {
+      case $puntuacion > 3000:
+        return "#ff0000";
+      case $puntuacion >= 2000:
+        return "#ff7f00";
+      case $puntuacion >= 1000:
+        return "#ffff00";
+      case $puntuacion >= 500:
+        return "#00ff00";
+      default:
+        return "#0000ff";
+    }
+  }
+?>
+</ul>
+      </script>
+        
+</body>
+</html>
